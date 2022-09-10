@@ -16,10 +16,22 @@ class Home extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.red[600],
       ),
-      body: const Center(
-        //child: Image(image: NetworkImage('https://images.unsplash.com/photo-1537420327992-d6e192287183?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80'),
-        child: Image(
-          image: AssetImage('assets/images/space-1.jpg'),
+      body: Center(
+        /*child: ElevatedButton(
+          onPressed: (){
+            print('click me button');
+          },
+          child: Text('click me'),
+          style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.red),)
+        ),*/
+        child: ElevatedButton.icon(
+            onPressed: (){},
+            icon: Icon(Icons.mail),
+            label: Text('mail me'),
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(Colors.red),
+              foregroundColor: MaterialStateProperty.all(Colors.black),
+            ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
