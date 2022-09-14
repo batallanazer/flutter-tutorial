@@ -1,57 +1,38 @@
 import 'package:flutter/material.dart';
-
+import 'quote.dart';
 void main() {
   runApp(MaterialApp(
-    home: Home(),
+    home: QuoteList(),
   ));
 }
 
-class Home extends StatelessWidget {
+class QuoteList extends StatefulWidget {
+
+  @override
+  State<QuoteList> createState() => _QuoteListState();
+}
+
+class _QuoteListState extends State<QuoteList> {
+
+  List<Quote> quotes = [
+    Quote(author: 'Benjamin Franklin', text: "Tell me and I forget. Teach me and I remember. Involve me and I learn."),
+    Quote(author: 'Walt Disney', text: "The way to get started is to quit talking and begin doing."),
+    Quote(author: 'Aristotle', text: "It is during our darkest moments that we must focus to see the light."),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: Text('My First App'),
+        title: Text('Awesome Quotes'),
         centerTitle: true,
-        backgroundColor: Colors.red[600],
+        backgroundColor: Colors.redAccent,
       ),
-      body: Row(
-        children: [
-          Expanded(
-            flex: 3,
-            child: Container(
-              padding: EdgeInsets.all(30.0),
-              child: Text("one", textAlign: TextAlign.center,),
-              color: Colors.cyan,
-            ),
-          ),
-          Expanded(
-            flex:5,
-            child: Container(
-              padding: EdgeInsets.all(30.0),
-              child: Text("two", textAlign: TextAlign.center,),
-              color: Colors.amber,
-            ),
-          ),
-          Expanded(
-            flex: 3,
-            child: Container(
-              padding: EdgeInsets.all(30.0),
-              child: Text("three", textAlign: TextAlign.center,),
-              color: Colors.lightBlue,
-            ),
-          ),
-        ],
+      body: Column(
+        children: quotes.map((quote) => Text('${quote.text} - ${quote.author}')).toList(),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: null,
-        child:const Icon(Icons.add),
-        backgroundColor: Colors.red[600],
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
-
 
